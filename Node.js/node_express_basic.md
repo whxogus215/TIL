@@ -5,6 +5,7 @@
     - [리눅스 명령어를 사용하는 이유](#리눅스를-왜-사용해야-할까)
 1. [Node JS](#node-js는-무엇인가)
     - [NPM](#npm은-무엇인가)
+    - [Package.json]
 
 2. [Express](#express는-무엇인가)
     - [Express를 사용해야 하는 이유](#express를-사용해야-하는-이유)
@@ -27,6 +28,37 @@
 
 ## NPM은 무엇인가
 - Node Package Manager(NPM)은 JS 언어를 위한 패키지 관리 시스템이다. Python에서 pip 명령어와 비슷하게 node 환경에서 기타 외부 모듈을 설치할 때 `npm install` 명령어를 사용한다.
+
+## Package.json
+- Package.json 파일은 npm init을 하거나 express를 설치할 때 설정하는 패키지 관리 파일이다. 이 파일은 JSON 타입으로 되어 있으며, 해당 프로젝트에 필요한 모듈 및 버전 등이 명시되어 있다.
+- 파일의 scripts 란에 명령어 단축키를 저장할 수 있다.
+### node_modules을 깃허브에 올리지 않는 이유
+- 기본적으로 깃이나 깃허브에 커밋할 때 node_modules를 포함하지 않는다. node_modules에는 node에 필요한 모든 모듈들이 담겨 있으며, 특정 프로젝트에 불필요한 모듈도 분명히 있을 것이다. **즉, 우리가 필요한 모듈만 설치하기 위해서 Package.json을 참조하면 된다.** Package.json에는 설치한 모듈들이 작성되어 있으며("dependencies"), 이 파일만 있으면 터미널에 `npm init`만 치면 알아서 dependencies의 모듈이 자동으로 설치된다. 따라서 node_modules 별도로 설치하지 않아도 된다.
+### Package-lock.json이란?
+- Package-lock.json도 기본적으로 Package.json가 유사하지만 모듈에 대한 버전 정보가 좀 더 명확하고 자세하게 명시되어 있다.
+- Package.json의 경우 버전의 내용이 "^3.1.8" 이런식으로 범위로 지정되어 있고, Package-lock.json의 경우 해당 모듈의 버전이 정확이 몇 버전인지 나와있다.
+- 버전 표기 방법
+    1. ^3.1.5 (캐럿) : 두번째 소수자리의 영역을 표시\
+    ex) 3.2.5, 3.3.5는 허용, 4.1.5, 5.1.5는 허용하지 않음.
+    2. ~3.1.5 : 세번째 소수자리의 영역을 표시\
+    ex) 3.1.6, 3.1.8 허용
+    3. 3.1.x : x에 해당하는 모든 값을 허용
+    ex) 더 낮은 버전이어도 x에 해당하는 부분이면 상관없음.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Express
 ## Express는 무엇인가
