@@ -5,10 +5,13 @@
     - [리눅스 명령어를 사용하는 이유](#리눅스를-왜-사용해야-할까)
 1. [Node JS](#node-js는-무엇인가)
     - [NPM](#npm은-무엇인가)
-    - [Package.json]
+    - [Package.json](#packagejson)
 
 2. [Express](#express는-무엇인가)
     - [Express를 사용해야 하는 이유](#express를-사용해야-하는-이유)
+
+3. [JavaScript](#javascript)
+    - [fetch](#fetch)
 
 
 # Git bash 명령어 정리
@@ -99,5 +102,25 @@ app.listen(3000, () => {
 });
 ```
 - node만을 사용할 경우 1. 조건문을 사용하며 2. 한글 출력에 있어서 별도로 헤더를 추가해야 한다. (line 2) 따라서 express에 비해 코드가 훨씬 길어진다. 라우팅의 경우가 많아질 경우 코드는 더욱 가독성이 떨어질 수 있다.
+
+
+
+# JavaScript
+## fetch
+- 자바스크립트는 웹 페이지를 제어하는 언어이다. DOM을 통해 웹 페이지의 구성 요소를 제어할 수 있는 권한이 있다. 우리가 사용하는 `querySelector` 등도 document의 객체이다. 홈페이지에서 서버로 요청하는 데이터를 처리하기 위해서는 해당 페이지와 연결된 js 파일에서 처리하는 함수를 만들어주어야 한다. 이 때 사용하는 기능이 fetch이다.
+- 
+```
+// 프론트에서 서버로 데이터를 보내는 방법 fetch
+    fetch("/login", {
+        // 서버로 보내는 데이터
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body: JSON.stringify(req)
+    })
+```
+위와 같이 특정 uri에 접근했을 때 api로 어떤 정보들을 전달할 지에 대해 명시한다. 위 코드는 POST 요청이며, 헤더에 해당 데이터가 어떤 타입인지(JSON), 그리고 요청의 바디 부분에 해당하는 데이터(오브젝트)를 문자열 형태로 전달한다.
+
 
 
